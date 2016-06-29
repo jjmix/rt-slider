@@ -1,0 +1,2 @@
+# rt-slider
+RT Slider plugins help theme developers by Creating a Slider Section in WordPress Customizer. The Developer Can use it with any Slider he wants like Nivo Slider, BX-Slider, etc. The CSS, JS, etc are still in the hands of theme Developer and to be added via theme. This plugin only creates Data for the slider, so that users do not loose their slider everytime they switch from one theme to another.
