@@ -136,3 +136,8 @@ endfor;
 
 If you need any help regarding this.
 [Contact me here] (http://rohitink.com/contact-me) or create an issue at Github.
+
+
+Themes Already Implementing RT Slider
+
+* [madhat] (http://wordpress.org/themes/madhat)
