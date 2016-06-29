@@ -123,7 +123,7 @@ for ( $i = 1; $i <= $no_of_slides; $i++ ) :
     echo "<div class='slide'>;
       echo "<a href='".$url."' target='_blank'>";
       echo "<img src='".$img."'>";
-      echo "<div class='caption>
+      echo "<div class='caption'>
               <div class='slide-title'>".$title ."</div>
               <div class='slide-desc'>".$desc."</div>
             </div>"; //.caption
