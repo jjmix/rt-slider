@@ -17,8 +17,8 @@ What Kind of Slider to be used, or its styling, will be completely done by the t
 This ensures that Users do not loose their slider data once, they switch themes.
 
 Naming of Variables:
-All instances of rtslider, which are for plugin use only, are names rtslider. 
-All Those to be referenced by plugin are names rt_slider. (with Underscrore).
+All instances of rtslider, which are for plugin use only, are named rtslider. 
+All Those to be referenced by themes are named rt_slider. (with Underscrore).
 */
 
 if(!defined('RTSLIDER_URL')){
@@ -539,6 +539,3 @@ class rt_slider {
 
 //Initialize and Instance of the Slider.
 $rtslider_inst = new rt_slider();
-
-//rt_slider::render($param1)
-//rt_slider::fetch($param)
