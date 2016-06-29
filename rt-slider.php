@@ -510,34 +510,35 @@ class rt_slider {
 		)
 		return true;
 	}
+	
+	//The Function which is to be called by themes.
+	public static function render($param1, $param2 = null) {
+		global $rtslider_inst; //Global Variable of the Instance
+		
+		if ( $rtslider_inst->is_rtslider_enabled() )
+			get_template_part( $param1, $param2 );
+			
+	}
+	
+	//The Function to Fetch Various Slider Settings and Values
+	public static function fetch( $param, $slide_number = null ) {
+		
+		$return_value = null;
+		
+		if ($slide_number == null) {		
+			$return_value = get_theme_mod('rtslider_'.$param);
+		} elseif ($slide_number > 0) {
+			$return_value = get_theme_mod('rtslider_slide_'.$param.$slide_number);
+		}
+		
+		return $return_value;
+		
+	}
 
 } //END CLASS
 
 //Initialize and Instance of the Slider.
 $rtslider_inst = new rt_slider();
 
-//The Function which is to be called by themes.
-function rt_slider($param1, $param2 = null) {
-	
-	global $rtslider_inst; //Global Variable of the Instance
-	
-	if ( $rtslider_inst->is_rtslider_enabled() )
-		get_template_part( $param1, $param2 );
-		
-}
-
-
-//The Function to Fetch Various Slider Settings and Values
-function rt_slider_get( $param, $slide_number = null ) {
-	
-	$return_value = null;
-	
-	if ($slide_number == null) {		
-		$return_value = get_theme_mod('rtslider_'.$param);
-	} elseif ($slide_number > 0) {
-		$return_value = get_theme_mod('rtslider_slide_'.$param.$slide_number);
-	}
-	
-	return $return_value;
-	
-}
+//rt_slider::render($param1)
+//rt_slider::fetch($param)

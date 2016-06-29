@@ -64,7 +64,7 @@ Then add this code, wherever you want the slider to show up. Generally, somewher
 
 ```php
 if( class_exists('rt_slider') ) {
-	rt_slider('slider', 'nivo' ); 
+	rt_slider::render('slider', 'nivo' ); 
 }
 ```		
   
@@ -75,9 +75,9 @@ There is just one function, which has 2 forms.
 
 ##### Function 1: 
 ```php
-rt_slider_get( $param )
+rt_slider::fetch( $param )
 ```
-e.g. `$no_of_slides = rt_slider_get('count');`
+e.g. `$no_of_slides = rt_slider::fetch('count');`
 
 Possible Values of `$param`
 
@@ -94,7 +94,7 @@ The Last 5 options above, are available if you have added support for 'config' a
 
 ##### Function 2
 ```php
-rt_slider_get( $param, $slide_number )
+rt_slider::fetch( $param, $slide_number )
 ```
 This is the function you would use inside your for or foreach loop, used to render each individual slide.
 The `$slider_number` is the loop index. Min Value should be 1. So start your For Loop from 1, rather than 0.
@@ -111,14 +111,14 @@ Possible Values for `$param`
 
 ```php
 
-$count = $no_of_slides = rt_slider_get('count');
+$count = $no_of_slides = rt_slider::fetch('count');
 
 for ( $i = 1; $i <= $no_of_slides; $i++ ) :
     
-    $img   = rt_slider_get('img', $i);
-    $url   = rt_slider_get('url', $i);
-    $title = rt_slider_get('title', $i);
-    $desc  = rt_slider_get('desc', $i);
+    $img   = rt_slider::fetch('img', $i);
+    $url   = rt_slider::fetch('url', $i);
+    $title = rt_slider::fetch('title', $i);
+    $desc  = rt_slider::fetch('desc', $i);
     
     echo "<div class='slide'>;
       echo "<a href='".$url."' target='_blank'>";
