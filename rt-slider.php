@@ -3,7 +3,7 @@
 /*
 Plugin Name: RT Slider
 Description: A Very Simple & Easy Slider Plugin, which helps you create sliders from Customizer, if your Theme Supports it. Originally Designed to Work with Rohitink.com & Inkhive.com Themes. 
-Version: 0.92
+Version: 1.0.2
 Author: Rohit Tripathi
 Author URI: http://rohitink.com
 License: GPLv3
@@ -373,26 +373,24 @@ class rt_slider {
 				    'label'    => __( 'No. of Slides(Min:0, Max: '.$max_count.')' ,'rt-slider'),
 				    'section'  => 'rtslider_sec_slider_options',
 				    'type'     => 'number',
-				    'description' => __('Set the No. of Slides you want, and go to Previous screen to configure the slides.','rt-slider'),
+				    'description' => __('Set the No. of Slides you want, and go then <strong style="color:green;">reload this page</strong> screen to configure the slides.','rt-slider'),
 				    
 				)
-			);
+			);						
 			
-			
-			for ( $i = 1 ; $i <= $max_count ; $i++ ) :
+			for ( $i = 1 ; $i <= get_theme_mod('rtslider_count',0) ; $i++ ) :
 				
-				//Create the settings Once, and Loop through it.
-				static $x = 0;
+				//Create the settings Once, and Loop through it.	
 				$wp_customize->add_section(
 				    'rtslider_slide_sec'.$i,
 				    array(
 				        'title'     => 'Slide '.$i,
 				        'priority'  => $i,
 				        'panel'     => 'rtslider_panel',
-				        'active_callback' => 'rtslider_show_slide_sec'
 				        
 				    )
 				);	
+				
 				
 				$wp_customize->add_setting(
 					'rtslider_slide_img'.$i,
@@ -470,16 +468,6 @@ class rt_slider {
 				);
 				
 			endfor;
-			
-			//active callback to see if the slide section is to be displayed or not
-			function rtslider_show_slide_sec( $control ) {
-			        $option = $control->manager->get_setting('rtslider_count');
-			        global $x;
-			        if ( $x < $option->value() ){
-			        	$x++;
-			        	return true;
-			        }
-				}
 			
 		endif;	 //end get theme support
 			
